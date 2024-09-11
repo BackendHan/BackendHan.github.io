@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html">About Me</a>
+        <a href="work-experience.html">Work Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="assignments.html">Assignments</a>
+    </nav>
+</header>
+<main>
+    <h1>Projects</h1>
+    <section id="tiktok-short-link-system">
+        <h2>TikTok Short Link Sharing System</h2>
+        <p><strong>Tech Stack:</strong> SpringBoot, SpringCloudAlibaba, RabbitMQ, ShardingSphere, Redis, MySQL, Sentinel</p>
+
+        <h3>Project Overview</h3>
+        <p>The TikTok Short Link Sharing System facilitates user convenience in sharing TikTok videos. When sharing to third-party platforms, it uses a short link in text format to enhance video distribution and sharing capabilities. The system supports high-concurrency short link redirection scenarios at its core and provides real-time analytics and tracking features to help TikTok analyze user sharing behavior and conversion rates.</p>
+
+        <h3>My Contributions</h3>
+        <ul>
+            <li>Implemented a Bloom filter to determine whether a short link already exists, achieving performance far superior to the combination of distributed locks and database queries.</li>
+            <li>Utilized RabbitMQ message queue peak-shaving capabilities to handle the storage of monitoring information in high-traffic short link scenarios.</li>
+            <li>Encapsulated cache-miss read functionality and optimized mass database query issues in update or expiration scenarios through a dual-judgment lock.</li>
+            <li>Ensured data consistency between the short link cache and the database by using a database-update-then-cache-deletion strategy.</li>
+            <li>Ensured idempotency in message queue consumption scenarios through Redis, guaranteeing that messages are consumed only once within a specified time frame.</li>
+            <li>Used Redisson’s distributed read-write lock to handle data modification for short links under heavy access conditions.</li>
+            <li>To accommodate paginated viewing of short links in the system's back-end management, added a routing table for redirection functionality on top of short link data sharding.</li>
+            <li>Used Sentinel to limit QPS (queries per second) for interface access, ensuring stable operation of the short link system and applying degradation when the rate-limiting rules are triggered.</li>
+        </ul>
+    </section>
+
+</main>
+</body>
+</html>
